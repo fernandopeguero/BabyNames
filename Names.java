@@ -25,7 +25,7 @@ public class Names {
         
             String gender = currentRecord.get(1);
             
-            if(gender == "F") {
+            if(gender.equals("F")) {
                 girls += Integer.parseInt(currentRecord.get(2));
             } else {
                 boys += Integer.parseInt(currentRecord.get(2));
@@ -43,6 +43,10 @@ public class Names {
     
     void testTotalBirth() {
         
+        FileResource fr = new FileResource();
+        CSVParser parser = fr.getCSVParser(false);
+        
+        totalBirths(parser);
     
     }
 }
