@@ -40,6 +40,34 @@ public class Names {
         System.out.println("There were " + boys + " boys birth");
     }
     
+    int getRank(int year, String name, String gender) {
+    
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        CSVParser parser = fr.getCSVParser(false);
+        
+        int rank = -1;
+        int count = 0;
+        // loop trough the csvfile
+            // update the count if the gender match
+            // if name match update rank to count break out of the loop
+        for(CSVRecord currentRecord: parser) {
+            
+            String currentGender = currentRecord.get(1);
+            
+            if(currentGender.equals(gender)) {
+                count++;
+                
+                String currentName = currentRecord.get(0);
+                if(currentName.equals(name)) {
+                    rank = count;
+                    break;
+                }
+            }
+        }
+            
+        return rank; 
+    }
+    
     
     void testTotalBirth() {
         
