@@ -68,6 +68,28 @@ public class Names {
         return rank; 
     }
     
+    String getName(int year, int rank, String gender) {
+    
+        
+        // return the name of the person with the rank given 
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        CSVParser parser = fr.getCSVParser(false);
+        
+        int count = 0 ;
+        
+        for(CSVRecord record : parser){
+        
+            count++;
+            
+            if(count == rank){
+                return record.get(0);
+            }
+            
+        }
+        
+        return "No Name";
+    }
+    
     
     void testTotalBirth() {
         
