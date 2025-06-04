@@ -22,23 +22,33 @@ public class Names {
         int girls = 0;
         int boys = 0;
         
+        int boysNames = 0;
+        int girlsNames = 0;
+        int totalNames = 0;
+        
         for(CSVRecord currentRecord: parser){
         
             String gender = currentRecord.get(1);
             
             if(gender.equals("F")) {
+                girlsNames++;
                 girls += Integer.parseInt(currentRecord.get(2));
             } else {
+                boysNames++;
                 boys += Integer.parseInt(currentRecord.get(2));
             }
         
         }
     
         totalBirth = boys + girls;
-        
+        totalNames = boysNames + girlsNames;
         System.out.println("There were " + totalBirth + " total Births");
         System.out.println("There were " + girls + " girls births");
         System.out.println("There were " + boys + " boys birth");
+        
+         System.out.println("There were " + totalBirth + " total Names");
+        System.out.println("There were " + girls + " girls names");
+        System.out.println("There were " + boys + " boys names");
     }
     
     int getRank(int year, String name, String gender) {
