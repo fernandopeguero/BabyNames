@@ -53,7 +53,7 @@ public class Names {
     
     int getRank(int year, String name, String gender) {
     
-        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_by_year\\yob"+ year+".csv");
         CSVParser parser = fr.getCSVParser(false);
         
         int rank = -1;
@@ -83,7 +83,7 @@ public class Names {
     
         
         // return the name of the person with the rank given 
-        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_by_year\\yob"+ year+".csv");
         CSVParser parser = fr.getCSVParser(false);
         
         int count = 0 ;
@@ -123,7 +123,7 @@ public class Names {
             int rank = getRank(currentYear, name, gender);
             
             if(rank == -1) {
-                break;
+                continue;
             }
             
             if(highestRank == -1){
@@ -170,7 +170,7 @@ public class Names {
     
     int getTotalBirthsRankedHigher(int year, String name, String gender) {
         
-        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_by_year\\yob"+ year+".csv");
         CSVParser parser = fr.getCSVParser();
         int totalBirth = 0;
         
