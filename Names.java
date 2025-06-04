@@ -158,6 +158,32 @@ public class Names {
         return average / count;
     }
     
+    int getTotalBirthsRankedHigher(int year, String name, String gender) {
+        
+        FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_test\\yob"+ year+"short.csv");
+        CSVParser parser = fr.getCSVParser();
+        int totalBirth = 0;
+        
+        for(CSVRecord record: parser){
+        
+            String currentName = record.get(0);
+            String currentGender = record.get(1);
+
+            
+            if(currentGender.equals(gender)){
+                
+                if(currentName.equals(name)){
+                    break;
+                }
+                
+                totalBirth += Integer.parseInt(record.get(2));
+            }
+           
+        }
+        
+        return totalBirth;
+    }
+    
     
     void testTotalBirth() {
         
