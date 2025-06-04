@@ -121,10 +121,10 @@ public class Names {
                 highestRankYear = currentYear;
             
             } else {
-                    if(rank < highestRank) {
-                highestRank = rank;
-                highestRankYear = currentYear;
-            }
+                if(rank < highestRank) {
+                    highestRank = rank;
+                    highestRankYear = currentYear;
+                }
             }
             
         
@@ -134,6 +134,28 @@ public class Names {
         
         return highestRankYear;
     
+    }
+    
+    double getAverageRank (String name, String gender) {
+        
+        DirectoryResource dr = new DirectoryResource();
+        double average = 0;
+        int count = 0;
+        for(File f: dr.selectedFiles()) {
+            
+            int currentYear = Integer.parseInt(f.getName().substring(3,7));
+            int rank = getRank(currentYear, name, gender);
+                
+            count++;
+            average += rank;
+            
+        }
+        
+        if(average == 0) {
+            return -1;
+        } 
+        
+        return average / count;
     }
     
     
