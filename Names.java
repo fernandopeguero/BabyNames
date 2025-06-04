@@ -109,7 +109,7 @@ public class Names {
     void whatIsNameInYear(String name, int year, int newYear, String gender) {
         
         
-        int rank = getRank(year , name, gender); 
+        int rank = getRank(year, name, gender); 
         
         String newName = getName(newYear, rank, gender);
         
@@ -176,7 +176,7 @@ public class Names {
     int getTotalBirthsRankedHigher(int year, String name, String gender) {
         
         FileResource fr = new FileResource("..\\Resources\\us_babynames\\us_babynames_by_year\\yob"+ year+".csv");
-        CSVParser parser = fr.getCSVParser();
+        CSVParser parser = fr.getCSVParser(false);
         int totalBirth = 0;
         
         for(CSVRecord record: parser){
