@@ -46,9 +46,9 @@ public class Names {
         System.out.println("There were " + girls + " girls births");
         System.out.println("There were " + boys + " boys birth");
         
-         System.out.println("There were " + totalBirth + " total Names");
-        System.out.println("There were " + girls + " girls names");
-        System.out.println("There were " + boys + " boys names");
+         System.out.println("There were " + totalNames + " total Names");
+        System.out.println("There were " + girlsNames + " girls names");
+        System.out.println("There were " + boysNames + " boys names");
     }
     
     int getRank(int year, String name, String gender) {
