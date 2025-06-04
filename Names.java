@@ -107,9 +107,9 @@ public class Names {
         DirectoryResource dr = new DirectoryResource();
         int highestRank = -1;
         int highestRankYear =  -1;
-        int currentYear = 2012;
+
         for(File f: dr.selectedFiles()){
-            
+            int currentYear = Integer.parseInt(f.getName().substring(3,7));
             int rank = getRank(currentYear, name, gender);
             
             if(rank == -1) {
@@ -117,7 +117,7 @@ public class Names {
             }
             
             if(highestRank == -1){
-                 highestRank = rank;
+                highestRank = rank;
                 highestRankYear = currentYear;
             
             } else {
