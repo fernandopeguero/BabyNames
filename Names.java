@@ -89,8 +89,13 @@ public class Names {
         int count = 0 ;
         
         for(CSVRecord record : parser){
-        
-            count++;
+            
+            String currentGender = record.get(1);
+            
+            if(currentGender.equals(gender)){
+                count++;
+            }
+            
             
             if(count == rank){
                 return record.get(0);
