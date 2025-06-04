@@ -1,5 +1,6 @@
 import edu.duke.*;
 import org.apache.commons.csv.*;
+import java.io.File; 
 /**
  * Write a description of Names here.
  * 
@@ -98,6 +99,40 @@ public class Names {
         String newName = getName(newYear, rank, gender);
         
         System.out.println( name + " born in " + year + " would be " + newName + " if born in " + newYear);
+    
+    }
+    
+    int yearOfHighestRank(String name, String gender) {
+        
+        DirectoryResource dr = new DirectoryResource();
+        int highestRank = -1;
+        int highestRankYear =  -1;
+        int currentYear = 2012;
+        for(File f: dr.selectedFiles()){
+            
+            int rank = getRank(currentYear, name, gender);
+            
+            if(rank == -1) {
+                break;
+            }
+            
+            if(highestRank == -1){
+                 highestRank = rank;
+                highestRankYear = currentYear;
+            
+            } else {
+                    if(rank < highestRank) {
+                highestRank = rank;
+                highestRankYear = currentYear;
+            }
+            }
+            
+        
+            
+            currentYear++;
+        }
+        
+        return highestRankYear;
     
     }
     
