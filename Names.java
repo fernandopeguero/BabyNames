@@ -90,6 +90,17 @@ public class Names {
         return "No Name";
     }
     
+    void whatIsNameInYear(String name, int year, int newYear, String gender) {
+        
+        
+        int rank = getRank(year , name, gender); 
+        
+        String newName = getName(newYear, rank, gender);
+        
+        System.out.println( name + " born in " + year + " would be " + newName + " if born in " + newYear);
+    
+    }
+    
     
     void testTotalBirth() {
         
